@@ -53,7 +53,6 @@
     return self;
 }
 
-#define testType 3
 - (void)loadInitialView
 {
     
@@ -175,6 +174,20 @@
     return YES;
 }
 
+#pragma mark Toolbar button actions
+
+- (IBAction)reloadButton:(id)sender {
+    
+    if (self.isOnTopPage) {
+        [self loadInitialView];
+        self.myToolbar.hidden = NO;
+    } else {
+        [self.webView1 reload];
+    }
+
+}
+
+
 // ********************************** //
 
 - (IBAction)mail:(id)sender 
@@ -191,6 +204,7 @@
     // Use the  presentViewController:animated:completion:  method to set up MFMailComposerViewController to send the page URL (or content, if top page)
     [self displayMailComposerSheet];
 }
+
 
 #pragma mark Mail Processing
 

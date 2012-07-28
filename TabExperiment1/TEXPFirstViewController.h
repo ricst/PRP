@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 - (IBAction)mail:(id)sender;
+- (IBAction)reloadButton:(id)sender;
 
 @property (nonatomic, copy) NSString *dataAsHTML;
 @property (nonatomic) BOOL isOnTopPage;
