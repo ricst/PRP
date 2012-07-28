@@ -103,7 +103,8 @@
     [self loadInitialView];
 
     UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideShowToolbarView)];
-    gest.numberOfTapsRequired = 2;
+    gest.numberOfTapsRequired = 1;
+    gest.numberOfTouchesRequired = 2;
     gest.delegate = self;
     [self.webView1 addGestureRecognizer:gest];
 }
