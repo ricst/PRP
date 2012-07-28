@@ -34,8 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		180D151E15C386C300BF472E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		180D152015C386C800BF472E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		180D151E15C386C300BF472E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		180D152015C386C800BF472E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		1810B89915B8BC0200EB4B50 /* PRP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PRP.json; path = ../PRP.json; sourceTree = "<group>"; };
 		1810B8A815BA02D600EB4B50 /* ParseJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseJSON.h; sourceTree = "<group>"; };
 		1810B8A915BA02D600EB4B50 /* ParseJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseJSON.m; sourceTree = "<group>"; };
@@ -93,6 +93,8 @@
 				18864E22158D083E0077BFAF /* first@2x.png */,
 				18864E27158D083E0077BFAF /* second.png */,
 				18864E29158D083E0077BFAF /* second@2x.png */,
+				180D152015C386C800BF472E /* Icon@2x.png */,
+				180D151E15C386C300BF472E /* Icon.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -100,8 +102,6 @@
 		18864DFC158D083D0077BFAF = {
 			isa = PBXGroup;
 			children = (
-				180D152015C386C800BF472E /* Icon@2x.png */,
-				180D151E15C386C300BF472E /* Icon.png */,
 				18864E11158D083E0077BFAF /* PRP */,
 				18864E0A158D083D0077BFAF /* Frameworks */,
 				18864E08158D083D0077BFAF /* Products */,
