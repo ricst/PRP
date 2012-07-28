@@ -55,7 +55,6 @@
 
 - (void)loadInitialView
 {
-    
         self.myToolbar.hidden = YES;
         
         self.webView1.scrollView.contentOffset = self.myContentOffset;

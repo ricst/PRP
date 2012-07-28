@@ -1,5 +1,7 @@
 {
     "dataURL" : "https://dl.dropbox.com/u/403776/prp1.sql3",
+    "readme_file_base" : "Readme",
+    "readme_file_ext" : "txt",
     "sql3_src_file_base" : "prp1_ref",
     "sql3_src_file_ext" : "sql3",
     "syncMaxSecs" : 15.0, 

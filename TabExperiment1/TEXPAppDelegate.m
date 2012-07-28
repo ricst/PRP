@@ -10,6 +10,7 @@
 #import "TEXPAppDelegate.h"
 #import "TEXPFirstViewController.h"
 #import "TEXPSecondViewController.h"
+#import "PRPThirdViewController.h"
 
 #import "ParseJSON.h"
 #import "SQLiteMgr.h"
@@ -258,9 +259,18 @@
     NSArray *configArrayController5 = [NSArray arrayWithObjects:@"Org", @"Org Resources", @"first", nil];
     //NSArray *configArrayController6 = [NSArray arrayWithObjects:@"Other", @"Other Resources", @"first", nil];
     
+    NSString *readmeFileBasename = [myJSONdata.deserializedDictionary objectForKey:@"readme_file_base"];
+    NSString *readmeFileExt = [myJSONdata.deserializedDictionary objectForKey:@"readme_file_ext"];
+    
+     NSString *readmeFilePath = [[NSBundle mainBundle] pathForResource:readmeFileBasename ofType:readmeFileExt];
+     if (!readmeFilePath) {
+         NSAssert1(0, @"Error locating README text file", readmeFilePath);
+        }
+    // NSString *contents = [NSString stringWithContentsOfFile:readmeFilePath encoding:NSUTF8StringEncoding error:nil];
     
     UIViewController *viewController1 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:webDisplayString andConfigArray:configArrayController1 bundle:nil];
-    UIViewController *viewController2 = [[TEXPSecondViewController alloc] initWithNibName:@"TEXPSecondViewController" bundle:nil];
+    /*UIViewController *viewController2 = [[TEXPSecondViewController alloc] initWithNibName:@"TEXPSecondViewController" bundle:nil]; */
+    UIViewController *viewController2 = [[PRPThirdViewController alloc] initWithNibName:@"PRPThirdViewController" andTextFile:readmeFilePath bundle:nil];
     UIViewController *viewController3 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:mediaDisplayString andConfigArray:configArrayController3 bundle:nil];
     UIViewController *viewController4 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:blogDisplayString andConfigArray:configArrayController4 bundle:nil];
     UIViewController *viewController5 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:orgDisplayString andConfigArray:configArrayController5 bundle:nil];
