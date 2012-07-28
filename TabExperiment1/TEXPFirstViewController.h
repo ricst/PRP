@@ -23,6 +23,9 @@
 
 - (IBAction)mail:(id)sender;
 - (IBAction)reloadButton:(id)sender;
+- (IBAction)goBackButton:(id)sender;
+- (IBAction)goForwardButton:(id)sender;
+- (IBAction)stopLoadingButton:(id)sender;
 
 @property (nonatomic, copy) NSString *dataAsHTML;
 @property (nonatomic) BOOL isOnTopPage;
