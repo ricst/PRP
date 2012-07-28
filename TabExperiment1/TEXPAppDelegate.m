@@ -180,7 +180,7 @@
     NSString *mediaDisplayString = @"";
     NSString *blogDisplayString = @"";
     NSString *orgDisplayString = @"";
-    NSString *forumDisplayString = @"";
+    NSString *otherDisplayString = @"";
     
     NSString *displayString;
     
@@ -215,7 +215,7 @@
         unsigned int med = [(NSNumber *) [dataDict objectForKey:@"med"] unsignedIntValue];
         unsigned int blog = [(NSNumber *) [dataDict objectForKey:@"blog"] unsignedIntValue];
         unsigned int org = [(NSNumber *) [dataDict objectForKey:@"org"] unsignedIntValue];
-        unsigned int forum = [(NSNumber *) [dataDict objectForKey:@"forum"] unsignedIntValue];
+        unsigned int other = [(NSNumber *) [dataDict objectForKey:@"other"] unsignedIntValue];
         
         // If a web item
         if (web) {  
@@ -237,9 +237,9 @@
             orgDisplayString = [orgDisplayString stringByAppendingString:displayString];
         }
         
-        // If a discussion forum
-        if (forum) {
-            forumDisplayString = [forumDisplayString stringByAppendingString:displayString];
+        // If a discussion other
+        if (other) {
+            otherDisplayString = [otherDisplayString stringByAppendingString:displayString];
         }
     }
     
@@ -249,18 +249,21 @@
     mediaDisplayString = [[BEGIN_HTML_WRAPPER stringByAppendingString:mediaDisplayString] stringByAppendingString:END_HTML_WRAPPER];
     blogDisplayString = [[BEGIN_HTML_WRAPPER stringByAppendingString:blogDisplayString] stringByAppendingString:END_HTML_WRAPPER];
     orgDisplayString = [[BEGIN_HTML_WRAPPER stringByAppendingString:orgDisplayString] stringByAppendingString:END_HTML_WRAPPER];
-    forumDisplayString = [[BEGIN_HTML_WRAPPER stringByAppendingString:forumDisplayString] stringByAppendingString:END_HTML_WRAPPER];
+    otherDisplayString = [[BEGIN_HTML_WRAPPER stringByAppendingString:otherDisplayString] stringByAppendingString:END_HTML_WRAPPER];
     
     // Array object order must follow CONFIGARRAY #defines
     NSArray *configArrayController1 = [NSArray arrayWithObjects:@"Web", @"Web Resources", @"first", nil];
     NSArray *configArrayController3 = [NSArray arrayWithObjects:@"Media", @"Media Resources", @"first", nil];  // <-- UPDATE IMAGE
     NSArray *configArrayController4 = [NSArray arrayWithObjects:@"Blog", @"Blog Resources", @"first", nil];
+    NSArray *configArrayController5 = [NSArray arrayWithObjects:@"Org", @"Org Resources", @"first", nil];
+    //NSArray *configArrayController6 = [NSArray arrayWithObjects:@"Other", @"Other Resources", @"first", nil];
     
     
     UIViewController *viewController1 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:webDisplayString andConfigArray:configArrayController1 bundle:nil];
     UIViewController *viewController2 = [[TEXPSecondViewController alloc] initWithNibName:@"TEXPSecondViewController" bundle:nil];
     UIViewController *viewController3 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:mediaDisplayString andConfigArray:configArrayController3 bundle:nil];
     UIViewController *viewController4 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:blogDisplayString andConfigArray:configArrayController4 bundle:nil];
+    UIViewController *viewController5 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:orgDisplayString andConfigArray:configArrayController5 bundle:nil];
     
     
     self.tabBarController = [[UITabBarController alloc] init];
@@ -268,7 +271,7 @@
     // Make the AppDelegate also the TabBarController delegate
     self.tabBarController.delegate = self;
     
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, viewController3, viewController4, viewController5, nil];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
