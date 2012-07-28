@@ -168,7 +168,8 @@
     if (self.isOnTopPage && (navigationType == UIWebViewNavigationTypeLinkClicked)) {
         self.isOnTopPage = NO; //clicked any link; now not on top page
                                // self.myContentOffset = self.webView1.scrollView.contentOffset;
-        self.myContentOffset = webView.scrollView.contentOffset;
+                               //self.myContentOffset = webView.scrollView.contentOffset;
+        self.myContentOffset = self.webView1.scrollView.contentOffset;
         //NSLog(@"webView:should contentOffset set to (%f, %f)", webView.scrollView.contentOffset.x, webView.scrollView.contentOffset.y);
     }
     return YES;
