@@ -56,12 +56,7 @@
 #define testType 3
 - (void)loadInitialView
 {
-    // Just a test: See if we can load a sample HTML file
-    if (testType == 1) {
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"someHTML" ofType:@"html"];
-        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-        [self.webView1 loadRequest:[NSURLRequest requestWithURL:fileURL]];
-    } else if (testType == 3) {
+    
         self.myToolbar.hidden = YES;
         
         self.webView1.scrollView.contentOffset = self.myContentOffset;
@@ -72,8 +67,6 @@
         
         // Allow for UIWebViewDelegate
         self.webView1.delegate = self;
-        
-    }
 }
 
 //hide or show myToolbar
