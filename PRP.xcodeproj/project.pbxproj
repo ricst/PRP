@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1810B89A15B8BC0200EB4B50 /* PRP.json in Resources */ = {isa = PBXBuildFile; fileRef = 1810B89915B8BC0200EB4B50 /* PRP.json */; };
+		1810B8AA15BA02D600EB4B50 /* ParseJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810B8A915BA02D600EB4B50 /* ParseJSON.m */; };
+		1810B8AD15BA176F00EB4B50 /* NSObject+NSStringExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810B8AC15BA176F00EB4B50 /* NSObject+NSStringExtentions.m */; };
+		1811419815B356A900D7F961 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1811419715B356A900D7F961 /* libsqlite3.dylib */; };
+		181141AE15B35CBF00D7F961 /* prp1_ref.sql3 in Resources */ = {isa = PBXBuildFile; fileRef = 181141AD15B35CBF00D7F961 /* prp1_ref.sql3 */; };
+		184E9EB415B627F7003EB9BF /* SQLiteMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 184E9EB315B627F7003EB9BF /* SQLiteMgr.m */; };
+		18864E0C158D083E0077BFAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18864E0B158D083D0077BFAF /* UIKit.framework */; };
+		18864E0E158D083E0077BFAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18864E0D158D083E0077BFAF /* Foundation.framework */; };
+		18864E10158D083E0077BFAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18864E0F158D083E0077BFAF /* CoreGraphics.framework */; };
+		18864E16158D083E0077BFAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18864E14158D083E0077BFAF /* InfoPlist.strings */; };
+		18864E18158D083E0077BFAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18864E17158D083E0077BFAF /* main.m */; };
+		18864E1C158D083E0077BFAF /* TEXPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18864E1B158D083E0077BFAF /* TEXPAppDelegate.m */; };
+		18864E1F158D083E0077BFAF /* TEXPFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18864E1E158D083E0077BFAF /* TEXPFirstViewController.m */; };
+		18864E21158D083E0077BFAF /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 18864E20158D083E0077BFAF /* first.png */; };
+		18864E23158D083E0077BFAF /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18864E22158D083E0077BFAF /* first@2x.png */; };
+		18864E26158D083E0077BFAF /* TEXPSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18864E25158D083E0077BFAF /* TEXPSecondViewController.m */; };
+		18864E28158D083E0077BFAF /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 18864E27158D083E0077BFAF /* second.png */; };
+		18864E2A158D083E0077BFAF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18864E29158D083E0077BFAF /* second@2x.png */; };
+		18864E2D158D083E0077BFAF /* TEXPFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18864E2B158D083E0077BFAF /* TEXPFirstViewController.xib */; };
+		18864E30158D083E0077BFAF /* TEXPSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18864E2E158D083E0077BFAF /* TEXPSecondViewController.xib */; };
+		18864E37158D0B0A0077BFAF /* someHTML.html in Resources */ = {isa = PBXBuildFile; fileRef = 18864E36158D0B0A0077BFAF /* someHTML.html */; };
+		18A3CAFC15A7792D00B3AAB7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1810B89915B8BC0200EB4B50 /* PRP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PRP.json; path = ../PRP.json; sourceTree = "<group>"; };
+		1810B8A815BA02D600EB4B50 /* ParseJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseJSON.h; sourceTree = "<group>"; };
+		1810B8A915BA02D600EB4B50 /* ParseJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseJSON.m; sourceTree = "<group>"; };
+		1810B8AB15BA176F00EB4B50 /* NSObject+NSStringExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSStringExtentions.h"; sourceTree = "<group>"; };
+		1810B8AC15BA176F00EB4B50 /* NSObject+NSStringExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSStringExtentions.m"; sourceTree = "<group>"; };
+		1811419715B356A900D7F961 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		181141AB15B358FF00D7F961 /* rhs_header_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rhs_header_utils.h; sourceTree = "<group>"; };
+		181141AD15B35CBF00D7F961 /* prp1_ref.sql3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prp1_ref.sql3; sourceTree = SOURCE_ROOT; };
+		184E9EB215B627F7003EB9BF /* SQLiteMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteMgr.h; sourceTree = "<group>"; };
+		184E9EB315B627F7003EB9BF /* SQLiteMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteMgr.m; sourceTree = "<group>"; };
+		18864E07158D083D0077BFAF /* PRP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18864E0B158D083D0077BFAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		18864E0D158D083E0077BFAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		18864E0F158D083E0077BFAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		18864E13158D083E0077BFAF /* PRP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PRP-Info.plist"; sourceTree = "<group>"; };
+		18864E15158D083E0077BFAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18864E17158D083E0077BFAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18864E19158D083E0077BFAF /* PRP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PRP-Prefix.pch"; sourceTree = "<group>"; };
+		18864E1A158D083E0077BFAF /* TEXPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEXPAppDelegate.h; sourceTree = "<group>"; };
+		18864E1B158D083E0077BFAF /* TEXPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEXPAppDelegate.m; sourceTree = "<group>"; };
+		18864E1D158D083E0077BFAF /* TEXPFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEXPFirstViewController.h; sourceTree = "<group>"; };
+		18864E1E158D083E0077BFAF /* TEXPFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEXPFirstViewController.m; sourceTree = "<group>"; };
+		18864E20158D083E0077BFAF /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		18864E22158D083E0077BFAF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		18864E24158D083E0077BFAF /* TEXPSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TEXPSecondViewController.h; sourceTree = "<group>"; };
+		18864E25158D083E0077BFAF /* TEXPSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEXPSecondViewController.m; sourceTree = "<group>"; };
+		18864E27158D083E0077BFAF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		18864E29158D083E0077BFAF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		18864E2C158D083E0077BFAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TEXPFirstViewController.xib; sourceTree = "<group>"; };
+		18864E2F158D083E0077BFAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TEXPSecondViewController.xib; sourceTree = "<group>"; };
+		18864E36158D0B0A0077BFAF /* someHTML.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = someHTML.html; sourceTree = "<group>"; };
+		18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18864E04158D083D0077BFAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1811419815B356A900D7F961 /* libsqlite3.dylib in Frameworks */,
+				18A3CAFC15A7792D00B3AAB7 /* MessageUI.framework in Frameworks */,
+				18864E0C158D083E0077BFAF /* UIKit.framework in Frameworks */,
+				18864E0E158D083E0077BFAF /* Foundation.framework in Frameworks */,
+				18864E10158D083E0077BFAF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18864DFC158D083D0077BFAF = {
+			isa = PBXGroup;
+			children = (
+				18864E11158D083E0077BFAF /* PRP */,
+				18864E0A158D083D0077BFAF /* Frameworks */,
+				18864E08158D083D0077BFAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18864E08158D083D0077BFAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18864E07158D083D0077BFAF /* PRP.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18864E0A158D083D0077BFAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1811419715B356A900D7F961 /* libsqlite3.dylib */,
+				18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */,
+				18864E0B158D083D0077BFAF /* UIKit.framework */,
+				18864E0D158D083E0077BFAF /* Foundation.framework */,
+				18864E0F158D083E0077BFAF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18864E11158D083E0077BFAF /* PRP */ = {
+			isa = PBXGroup;
+			children = (
+				18864E1A158D083E0077BFAF /* TEXPAppDelegate.h */,
+				18864E1B158D083E0077BFAF /* TEXPAppDelegate.m */,
+				1810B8AB15BA176F00EB4B50 /* NSObject+NSStringExtentions.h */,
+				1810B8AC15BA176F00EB4B50 /* NSObject+NSStringExtentions.m */,
+				184E9EB215B627F7003EB9BF /* SQLiteMgr.h */,
+				184E9EB315B627F7003EB9BF /* SQLiteMgr.m */,
+				1810B8A815BA02D600EB4B50 /* ParseJSON.h */,
+				1810B8A915BA02D600EB4B50 /* ParseJSON.m */,
+				18864E1D158D083E0077BFAF /* TEXPFirstViewController.h */,
+				18864E1E158D083E0077BFAF /* TEXPFirstViewController.m */,
+				18864E24158D083E0077BFAF /* TEXPSecondViewController.h */,
+				18864E25158D083E0077BFAF /* TEXPSecondViewController.m */,
+				18864E2B158D083E0077BFAF /* TEXPFirstViewController.xib */,
+				18864E2E158D083E0077BFAF /* TEXPSecondViewController.xib */,
+				18864E12158D083E0077BFAF /* Supporting Files */,
+			);
+			name = PRP;
+			path = TabExperiment1;
+			sourceTree = "<group>";
+		};
+		18864E12158D083E0077BFAF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18864E20158D083E0077BFAF /* first.png */,
+				18864E22158D083E0077BFAF /* first@2x.png */,
+				18864E27158D083E0077BFAF /* second.png */,
+				18864E29158D083E0077BFAF /* second@2x.png */,
+				18864E36158D0B0A0077BFAF /* someHTML.html */,
+				18864E13158D083E0077BFAF /* PRP-Info.plist */,
+				18864E14158D083E0077BFAF /* InfoPlist.strings */,
+				18864E17158D083E0077BFAF /* main.m */,
+				18864E19158D083E0077BFAF /* PRP-Prefix.pch */,
+				1810B89915B8BC0200EB4B50 /* PRP.json */,
+				181141AD15B35CBF00D7F961 /* prp1_ref.sql3 */,
+				181141AB15B358FF00D7F961 /* rhs_header_utils.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18864E06158D083D0077BFAF /* PRP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18864E33158D083E0077BFAF /* Build configuration list for PBXNativeTarget "PRP" */;
+			buildPhases = (
+				18864E03158D083D0077BFAF /* Sources */,
+				18864E04158D083D0077BFAF /* Frameworks */,
+				18864E05158D083D0077BFAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PRP;
+			productName = TabExperiment1;
+			productReference = 18864E07158D083D0077BFAF /* PRP.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18864DFE158D083D0077BFAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PRP;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 18864E01158D083D0077BFAF /* Build configuration list for PBXProject "PRP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18864DFC158D083D0077BFAF;
+			productRefGroup = 18864E08158D083D0077BFAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18864E06158D083D0077BFAF /* PRP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18864E05158D083D0077BFAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18864E16158D083E0077BFAF /* InfoPlist.strings in Resources */,
+				18864E21158D083E0077BFAF /* first.png in Resources */,
+				18864E23158D083E0077BFAF /* first@2x.png in Resources */,
+				18864E28158D083E0077BFAF /* second.png in Resources */,
+				18864E2A158D083E0077BFAF /* second@2x.png in Resources */,
+				18864E2D158D083E0077BFAF /* TEXPFirstViewController.xib in Resources */,
+				18864E30158D083E0077BFAF /* TEXPSecondViewController.xib in Resources */,
+				18864E37158D0B0A0077BFAF /* someHTML.html in Resources */,
+				181141AE15B35CBF00D7F961 /* prp1_ref.sql3 in Resources */,
+				1810B89A15B8BC0200EB4B50 /* PRP.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18864E03158D083D0077BFAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18864E18158D083E0077BFAF /* main.m in Sources */,
+				18864E1C158D083E0077BFAF /* TEXPAppDelegate.m in Sources */,
+				18864E1F158D083E0077BFAF /* TEXPFirstViewController.m in Sources */,
+				18864E26158D083E0077BFAF /* TEXPSecondViewController.m in Sources */,
+				184E9EB415B627F7003EB9BF /* SQLiteMgr.m in Sources */,
+				1810B8AA15BA02D600EB4B50 /* ParseJSON.m in Sources */,
+				1810B8AD15BA176F00EB4B50 /* NSObject+NSStringExtentions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		18864E14158D083E0077BFAF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18864E15158D083E0077BFAF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		18864E2B158D083E0077BFAF /* TEXPFirstViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18864E2C158D083E0077BFAF /* en */,
+			);
+			name = TEXPFirstViewController.xib;
+			sourceTree = "<group>";
+		};
+		18864E2E158D083E0077BFAF /* TEXPSecondViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18864E2F158D083E0077BFAF /* en */,
+			);
+			name = TEXPSecondViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18864E31158D083E0077BFAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		18864E32158D083E0077BFAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18864E34158D083E0077BFAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TabExperiment1/PRP-Prefix.pch";
+				INFOPLIST_FILE = "TabExperiment1/PRP-Info.plist";
+				PRODUCT_NAME = PRP;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		18864E35158D083E0077BFAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TabExperiment1/PRP-Prefix.pch";
+				INFOPLIST_FILE = "TabExperiment1/PRP-Info.plist";
+				PRODUCT_NAME = PRP;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18864E01158D083D0077BFAF /* Build configuration list for PBXProject "PRP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18864E31158D083E0077BFAF /* Debug */,
+				18864E32158D083E0077BFAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18864E33158D083E0077BFAF /* Build configuration list for PBXNativeTarget "PRP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18864E34158D083E0077BFAF /* Debug */,
+				18864E35158D083E0077BFAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18864DFE158D083D0077BFAF /* Project object */;
+}

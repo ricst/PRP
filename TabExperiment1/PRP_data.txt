@@ -1,0 +1,349 @@
+// Progressive Resource Portal
+//
+// Data Version 1.01
+// Date 12 June 2012
+//
+// Ric Steinberger
+//
+// If Fields are added/changed, AppDelegate code parsing needs to change too.
+// Fields:
+//         Name: Resource name
+//         Cats: One or more categories (web, media, org, blog, forum)
+//         Desc: Brief description [must be all on one line]
+//         URL:
+//         URL_ITUNES:
+//         URL_ANDROID:
+//         EOR: End of data record marker - must appear after every record.  Comment OK here.
+//
+//    // => Comments
+//
+// Example:
+// Name: The Nation
+// Cats: web org
+// Desc: Online home of The Nation magazine
+// should be able to add more lines until blank line or next token
+// URL:  http://www.thenation.com
+// URL_ITUNES: http://itunes.apple.com/us/app/nationnow/id399704758?mt=8
+// EOR: optional comment here
+//
+// KEEP THESE IN ALPHABETICAL ORDER, as App does not re-sort
+
+Name: Abnormal Returns
+Cats: blog
+Desc: Financial aggregation and blogging site
+URL: http://abnormalreturns.com/
+EOR:
+
+Name: Alphaville
+Cats: blog
+Desc: Economic news, views, blogs from The Financial Times
+URL: http://ftalphaville.ft.com/blog/
+EOR:
+
+Name: American Prospect
+Cats: media
+Desc: Progressive mag. News, culture, politics, bloggers
+URL: http://prospect.org/
+EOR:
+
+Name: Baseline Scenario
+Cats: blog
+Desc: Economic analysis by authors Simon Johnson and James Kwak
+URL: http://baselinescenario.com/
+EOR:
+
+Name: Calculated Risk
+Cats: blog
+Desc: Economic analysis
+URL: http://www.calculatedriskblog.com/
+EOR:
+
+Name: Center for Science in the Public Interest
+Cats: org
+Desc: Consumer advocacy focused on health and nutrition
+URL: http://www.cspinet.org/
+EOR:
+
+Name: Common Dreams
+Cats: web
+Desc: About a dozen great news and opinion articles every day
+URL: http://www.commondreams.org/
+EOR:
+
+Name: Daily Kos
+Cats: blog
+Desc: Markos and friends: essential reading every day
+URL: http://www.dailykos.com/
+EOR:
+
+Name: Brad DeLong
+Cats: blog
+Desc: Expert level economic analysis
+URL: http://delong.typepad.com/sdj/
+EOR:
+
+Name: Democracy Now
+Cats: media
+Desc: Democracy Now podcasts and news
+URL: http://www.democracynow.org/
+URL_ITUNES: http://itunes.apple.com/us/app/democracy-now!-war-peace-report/id353540657?mt=8
+EOR:
+
+Name: E.J. Dionne Jr.
+Cats: blog
+Desc: Liberal political analysis by a Wash Post op-ed writer
+URL: http://www.washingtonpost.com/ej-dionne-jr/2011/02/24/ABhJNkM_page.html
+EOR:
+
+Name: Econbrowser
+Cats: blog
+Desc: Analysis of current economic conditions and policy
+URL: http://www.econbrowser.com/
+EOR:
+
+Name: Economic Policy Institute
+Cats: org
+Desc: Progressive economic organization
+URL: http://www.epi.org/
+EOR:
+
+Name: The Economic Populist
+Cats: blog
+Desc: Economic news and blogging aggregation site
+URL: http://www.economicpopulist.org/
+EOR:
+
+Name: The Energy Bulletin
+Cats: web
+Desc: Vital articles about peak oil, energy and sustainability
+URL: http://www.energybulletin.net/
+EOR:
+
+Name: Eschaton
+Cats: blog
+Desc: Atrios site
+URL: http://www.eschatonblog.com/
+EOR:
+
+Name: Financial Armageddon
+Cats: blog
+Desc: The name says it all
+URL: http://www.financialarmageddon.com/
+EOR:
+
+Name: Glenn Greenwald
+Cats: blog
+Desc: Progressive political and legal analyst and author
+URL: http://www.salon.com/writer/glenn_greenwald/
+EOR:
+
+Name: The Guardian
+Cats: media
+Desc: British newspaper
+URL: http://www.guardiannews.com/
+URL_ITUNES: http://itunes.apple.com/us/app/the-guardian-for-iphone/id411493119?mt=8
+EOR:
+
+Name: Jim Hightower
+Cats: blog
+Desc: Populist blogger, from Texas
+URL: http://www.jimhightower.com/
+EOR:
+
+Name: Institute for Policy Studies
+Cats: org
+Desc: Policy development and analysis org
+URL: http://www.ips-dc.org/
+EOR:
+
+Name: Steve Kornacki
+Cats: blog
+Desc: Salon political writer
+URL: http://www.salon.com/writer/steve_kornacki/
+EOR:
+
+Name: Paul Krugman
+Cats: blog
+Desc: Essential economic analysis by NY Times op-ed writer, author & Nobel winner
+URL: http://krugman.blogs.nytimes.com/
+EOR:
+
+Name: Robert Kuttner
+Cats: blog
+Desc: Economic policy analysis by well-known author
+URL: http://www.huffingtonpost.com/robert-kuttner/
+EOR:
+
+Name: Market Beat
+Cats: blog
+Desc: Market news and analysis from the WSJ site
+URL: http://blogs.wsj.com/marketbeat/
+EOR:
+
+Name: Media Matters
+Cats: web
+Desc: Tracks and debunks outrageous right wing hype, esp. on Fox News
+URL: http://mediamatters.org/
+EOR:
+
+Name: Harold Meyerson
+Cats: blog
+Desc: Wash Post columnist and American Prospect editor
+URL: http://prospect.org/voices/harold-meyerson
+EOR:
+
+Name: MoveOn
+Cats: org
+Desc: Democracy in Action, campaigns for the 99%
+URL: http://front.moveon.org/
+EOR:
+
+Name: Naked Capitalism
+Cats: web blog
+Desc: Essential economic analysis and commentary
+URL: http://www.nakedcapitalism.com/ 
+EOR:
+
+Name: The Nation
+Cats: media
+Desc: Online home of The Nation magazine
+URL:  http://www.thenation.com
+URL_ITUNES: http://itunes.apple.com/us/app/nationnow/id399704758?mt=8
+EOR: end of the record
+
+Name: Nation of Change
+Cats: web 
+Desc: Progressive news aggregation site
+URL: http://www.nationofchange.org/
+EOR:
+
+Name: The Next New Deal
+Cats: web
+Desc: Good old FDR economic liberalism
+URL: http://www.nextnewdeal.net/
+EOR:
+
+Name: New York Times
+Cats: media
+Desc: Global edition of the paper
+URL: http://global.nytimes.com/
+URL_ITUNES: http://itunes.apple.com/us/app/nytimes/id284862083?mt=8
+EOR:
+
+Name: NPR News
+Cats: media
+Desc: The news section of NPR's web site
+URL: http://www.npr.org/sections/news/
+EOR:
+
+Name: Of Two Minds
+Cats: blog
+Desc: Charles Hugh Smith's radical, sophisticated economic analysis
+URL: http://www.oftwominds.com/blog.html
+EOR:
+
+Name: Alex Pareene
+Cats: blog
+Desc: Salon author and columnist
+URL: http://www.salon.com/writer/alex_pareene/
+EOR:
+
+Name: The Progressive
+Cats: media
+Desc: Home of The Progresive magazine
+URL: http://progressive.org
+EOR:
+
+Name: Robert Reich
+Cats: blog
+Desc: Essential progressive economic analysis: a must read
+URL: http://robertreich.org/
+EOR:
+
+Name: Roots Action
+Cats: org
+Desc: Focused on: economic fairness, equal rights, civil liberties, environmental protection
+URL: http://www.rootsaction.org/index.php
+EOR:
+
+Name: Matthew Rothschild
+Cats: blog
+Desc: Editor of The Progresivehttp://www.salon.com/
+URL: http://www.progressive.org/list/mattrothschild
+EOR:
+
+Name: Felix Salmon
+Cats: blog
+Desc: Economics writer at Reuters
+URL: http://blogs.reuters.com/felix-salmon/
+EOR:
+
+Name: Salon
+Cats: web
+Desc: Progressive perspectives on politics, art, life, more
+URL: http://www.salon.com/
+EOR:
+
+Name: Alex Seitz-Wald
+Cats: blog
+Desc: Political reporter at Salon
+URL: http://www.salon.com/writer/alex_seitz_wald/
+EOR:
+
+Name: David Sirota
+Cats: blog
+Desc: Progressive blogger, author, radio host
+URL: http://www.davidsirota.com/
+EOR:
+
+Name: Smirking Chimp
+Cats: web
+Desc: Presents a dozen or so daily articles, with first few paragraphs.
+URL: http://smirkingchimp.com
+EOR:
+
+Name: Talking Points Memo
+Cats: web
+Desc: Daily progressive news and views
+URL: http://talkingpointsmemo.com
+EOR:
+
+Name: Truthdig
+Cats: web
+Desc: News and analysis from Robert Scheer and colleagues
+URL: http://www.truthdig.com
+EOR:
+
+Name: Truthout
+Cats: web
+Desc: Progressive news and views aggregation site
+URL: http://truth-out.org/
+EOR:
+
+Name: Union of Concerned Scientists
+Cats: org
+Desc: Citizens and scientists for responsible environmental policies
+URL: http://www.ucsusa.org/
+EOR:
+
+Name: Joan Walsh
+Cats: blog
+Desc: Salon writer
+URL: http://www.salon.com/writer/joan_walsh/
+EOR:
+
+Name: Zero Hedge
+Cats: blog
+Desc: Economic aggregation and analysis
+URL: http://www.zerohedge.com/ 
+EOR:
+
+Name: Dave Zirin
+Cats: blog
+Desc: Progressive perspective on sports
+URL: http://progressive.org/taxonomy/term/244
+EOR
+
+
+//
+// The End
