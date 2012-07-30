@@ -30,6 +30,8 @@
  
  */
 
+#define UIWEBVIEW_VIEW_CONTROLLER @"TEXPFirstViewController"
+
 #define JSON_CFG_FILE_BASE @"PRP"
 #define JSON_CFG_FILE_EXT @"json"
 
@@ -269,11 +271,13 @@
     // NSString *contents = [NSString stringWithContentsOfFile:readmeFilePath encoding:NSUTF8StringEncoding error:nil];
     
     UIViewController *viewController1 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:webDisplayString andConfigArray:configArrayController1 bundle:nil];
-    /*UIViewController *viewController2 = [[TEXPSecondViewController alloc] initWithNibName:@"TEXPSecondViewController" bundle:nil]; */
-    UIViewController *viewController2 = [[PRPThirdViewController alloc] initWithNibName:@"PRPThirdViewController" andTextFile:readmeFilePath bundle:nil];
-    UIViewController *viewController3 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:mediaDisplayString andConfigArray:configArrayController3 bundle:nil];
-    UIViewController *viewController4 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:blogDisplayString andConfigArray:configArrayController4 bundle:nil];
-    UIViewController *viewController5 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:orgDisplayString andConfigArray:configArrayController5 bundle:nil];
+    UIViewController *viewController2 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:mediaDisplayString andConfigArray:configArrayController3 bundle:nil];
+    UIViewController *viewController3 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:blogDisplayString andConfigArray:configArrayController4 bundle:nil];
+    UIViewController *viewController4 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:orgDisplayString andConfigArray:configArrayController5 bundle:nil];
+    
+    // View Controller for the Readme file
+    
+    UIViewController *viewController5 = [[PRPThirdViewController alloc] initWithNibName:@"PRPThirdViewController" andTextFile:readmeFilePath bundle:nil];
     
     
     self.tabBarController = [[UITabBarController alloc] init];
@@ -321,22 +325,11 @@
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    //NFLog;
-
-    // REALLY SHITTY CODE - Fix!
     // If ViewController is managing a WebView, reload that view to initial state
-    // Just use the viewController parameter <-----
-    UIViewController *v;
-    int ivc = 1;
-    for (v in self.tabBarController.viewControllers) {
-        if (ivc == 1) {
-            [(TEXPFirstViewController *) v loadInitialView];
-        } else if (ivc == 3)
-            [(TEXPFirstViewController *) v loadInitialView];
-        else if (ivc == 4)
-            [(TEXPFirstViewController *) v loadInitialView];
-        ivc++;
-    }
+        
+        if ([viewController.nibName isEqualToString:UIWEBVIEW_VIEW_CONTROLLER]) {
+                [(TEXPFirstViewController *)viewController loadInitialView];
+        } 
 }
 
 

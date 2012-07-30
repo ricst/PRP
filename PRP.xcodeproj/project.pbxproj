@@ -16,11 +16,11 @@
 		180D154515C47D8600BF472E /* PRPThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180D154315C47D8600BF472E /* PRPThirdViewController.m */; };
 		180D154615C47D8600BF472E /* PRPThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180D154415C47D8600BF472E /* PRPThirdViewController.xib */; };
 		180D154A15C4962E00BF472E /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 180D154915C4962E00BF472E /* Readme.txt */; };
+		180D154C15C5F12100BF472E /* prp1_ref.sql3 in Resources */ = {isa = PBXBuildFile; fileRef = 180D154B15C5F12000BF472E /* prp1_ref.sql3 */; };
 		1810B89A15B8BC0200EB4B50 /* PRP.json in Resources */ = {isa = PBXBuildFile; fileRef = 1810B89915B8BC0200EB4B50 /* PRP.json */; };
 		1810B8AA15BA02D600EB4B50 /* ParseJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810B8A915BA02D600EB4B50 /* ParseJSON.m */; };
 		1810B8AD15BA176F00EB4B50 /* NSObject+NSStringExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1810B8AC15BA176F00EB4B50 /* NSObject+NSStringExtentions.m */; };
 		1811419815B356A900D7F961 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1811419715B356A900D7F961 /* libsqlite3.dylib */; };
-		181141AE15B35CBF00D7F961 /* prp1_ref.sql3 in Resources */ = {isa = PBXBuildFile; fileRef = 181141AD15B35CBF00D7F961 /* prp1_ref.sql3 */; };
 		184E9EB415B627F7003EB9BF /* SQLiteMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 184E9EB315B627F7003EB9BF /* SQLiteMgr.m */; };
 		18864E0C158D083E0077BFAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18864E0B158D083D0077BFAF /* UIKit.framework */; };
 		18864E0E158D083E0077BFAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18864E0D158D083E0077BFAF /* Foundation.framework */; };
@@ -51,6 +51,7 @@
 		180D154315C47D8600BF472E /* PRPThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPThirdViewController.m; sourceTree = "<group>"; };
 		180D154415C47D8600BF472E /* PRPThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PRPThirdViewController.xib; sourceTree = "<group>"; };
 		180D154915C4962E00BF472E /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Readme.txt; path = ../Readme.txt; sourceTree = "<group>"; };
+		180D154B15C5F12000BF472E /* prp1_ref.sql3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = prp1_ref.sql3; path = ../prp1_ref.sql3; sourceTree = "<group>"; };
 		1810B89915B8BC0200EB4B50 /* PRP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PRP.json; path = ../PRP.json; sourceTree = "<group>"; };
 		1810B8A815BA02D600EB4B50 /* ParseJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseJSON.h; sourceTree = "<group>"; };
 		1810B8A915BA02D600EB4B50 /* ParseJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseJSON.m; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		1810B8AC15BA176F00EB4B50 /* NSObject+NSStringExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSStringExtentions.m"; sourceTree = "<group>"; };
 		1811419715B356A900D7F961 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		181141AB15B358FF00D7F961 /* rhs_header_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rhs_header_utils.h; sourceTree = "<group>"; };
-		181141AD15B35CBF00D7F961 /* prp1_ref.sql3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prp1_ref.sql3; sourceTree = SOURCE_ROOT; };
 		184E9EB215B627F7003EB9BF /* SQLiteMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteMgr.h; sourceTree = "<group>"; };
 		184E9EB315B627F7003EB9BF /* SQLiteMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteMgr.m; sourceTree = "<group>"; };
 		18864E07158D083D0077BFAF /* PRP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,15 +177,15 @@
 		18864E12158D083E0077BFAF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18864E36158D0B0A0077BFAF /* someHTML.html */,
-				180D154915C4962E00BF472E /* Readme.txt */,
 				18864E13158D083E0077BFAF /* PRP-Info.plist */,
+				180D154B15C5F12000BF472E /* prp1_ref.sql3 */,
 				18864E14158D083E0077BFAF /* InfoPlist.strings */,
 				18864E17158D083E0077BFAF /* main.m */,
 				18864E19158D083E0077BFAF /* PRP-Prefix.pch */,
 				1810B89915B8BC0200EB4B50 /* PRP.json */,
-				181141AD15B35CBF00D7F961 /* prp1_ref.sql3 */,
+				180D154915C4962E00BF472E /* Readme.txt */,
 				181141AB15B358FF00D7F961 /* rhs_header_utils.h */,
+				18864E36158D0B0A0077BFAF /* someHTML.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -249,7 +249,6 @@
 				18864E2D158D083E0077BFAF /* TEXPFirstViewController.xib in Resources */,
 				18864E30158D083E0077BFAF /* TEXPSecondViewController.xib in Resources */,
 				18864E37158D0B0A0077BFAF /* someHTML.html in Resources */,
-				181141AE15B35CBF00D7F961 /* prp1_ref.sql3 in Resources */,
 				1810B89A15B8BC0200EB4B50 /* PRP.json in Resources */,
 				180D151F15C386C300BF472E /* Icon.png in Resources */,
 				180D152115C386C800BF472E /* Icon@2x.png in Resources */,
@@ -259,6 +258,7 @@
 				180D154115C47A9900BF472E /* arrow_right@2x.png in Resources */,
 				180D154615C47D8600BF472E /* PRPThirdViewController.xib in Resources */,
 				180D154A15C4962E00BF472E /* Readme.txt in Resources */,
+				180D154C15C5F12100BF472E /* prp1_ref.sql3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
