@@ -30,8 +30,6 @@
  
  */
 
-#define UIWEBVIEW_VIEW_CONTROLLER @"TEXPFirstViewController"
-
 #define JSON_CFG_FILE_BASE @"PRP"
 #define JSON_CFG_FILE_EXT @"json"
 
@@ -41,7 +39,7 @@
 #define SQL3_SRC_FILE_BASE "prp1_ref"
 #define SQL3_SRC_FILE_EXT "sql3"
 
-#define SQLITE_QUERY @"SELECT * FROM %@ ORDER BY name_sort ASC;"
+#define SQLITE_QUERY @"SELECT * FROM %@ ORDER BY name_sort COLLATE NOCASE ASC;"
 
 #define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\"> </head> <body> <br /> <br />"
 #define END_HTML_WRAPPER @"</body> </html>"
@@ -325,11 +323,10 @@
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    // If ViewController is managing a WebView, reload that view to initial state
-        
-        if ([viewController.nibName isEqualToString:UIWEBVIEW_VIEW_CONTROLLER]) {
-                [(TEXPFirstViewController *)viewController loadInitialView];
-        } 
+    // If ViewController is managing a WebView (TEXPFirstViewController), reload that view to initial state
+                
+        if ([viewController.nibName isEqualToString:@"TEXPFirstViewController"])
+           [(TEXPFirstViewController *) viewController loadInitialView];
 }
 
 

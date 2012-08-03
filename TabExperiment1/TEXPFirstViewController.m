@@ -26,8 +26,6 @@
 
 @synthesize webView1 = _webView1;
 
-// Top Toolbar and buttons added to UIWebView, as explained here: http://www.youtube.com/watch?v=lzJVDjBCtLk 
-
 // An init method that allows passing in data and config details
 - (id)initWithNibName: (NSString *)nibNameOrNil andData: (id)theData andConfigArray: (NSArray *)configArray bundle: (NSBundle *)nibBundleOrNil
 {
