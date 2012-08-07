@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
+#import "PRPReachabilityStatus.h"
+
 // configArray offsets for initWithNibName:andData:andConfigArray:bundle
 #define CONFIGARRAY_NSLOC_KEY_INDEX 0
 #define CONFIGARRAY_NSLOC_COMMENT_INDEX 1
 #define CONFIGARRAY_IMAGENAME_INDEX 2
+#define CONFIGARRAY_INTERNET_STATE_INDEX 3
+
+#define NO_INTERNET_ALERT_INTERVAL_SECS 60
 
 @interface TEXPFirstViewController : UIViewController <UIGestureRecognizerDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 
@@ -31,6 +36,7 @@
 @property (nonatomic) BOOL isOnTopPage;
 @property (nonatomic, copy) NSString *currentURL;
 @property (nonatomic) CGPoint myContentOffset;
+@property (nonatomic, strong) PRPReachabilityStatus *internetState;
 
 - (void)displayMailComposerSheet;
 - (void)loadInitialView;

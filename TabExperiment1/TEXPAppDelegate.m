@@ -11,6 +11,8 @@
 #import "TEXPFirstViewController.h"
 #import "TEXPSecondViewController.h"
 #import "PRPThirdViewController.h"
+#import "Reachability.h"
+#import "PRPReachabilityStatus.h"
 
 #import "ParseJSON.h"
 #import "SQLiteMgr.h"
@@ -88,16 +90,18 @@
     NSURL *docsurl = [fm URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&docError];
     if (!docsurl) {
         shouldUseInstalledPRPData = YES;
-        NSLog(@"Could not create a docs directory '%@'\nError: %@", docsurl, [docError localizedDescription]);
+        MyLog(@"Could not create a docs directory '%@'\nError: %@", docsurl, [docError localizedDescription]);
     }
     NSURL *prpFolderURL = [docsurl URLByAppendingPathComponent:PRP_FOLDER_NAME];
     docError = nil;
     BOOL folderCreateSuccess = [fm createDirectoryAtURL:prpFolderURL withIntermediateDirectories:YES attributes:nil error:&docError];
     if (!folderCreateSuccess) {
         shouldUseInstalledPRPData = YES;
-        NSLog(@"Could not create a docs folder '%@'\nError: %@", prpFolderURL, [docError localizedDescription]);
+        MyLog(@"Could not create a docs folder '%@'\nError: %@", prpFolderURL, [docError localizedDescription]);
     }
   
+    PRPReachabilityStatus *internetState = [[PRPReachabilityStatus alloc] init];
+    
     NSURL *prpDataURL;
     if (!shouldUseInstalledPRPData) {
         // OK, let's try to download a current PRP data file and set ptr to it, if successful
@@ -108,7 +112,7 @@
         // remove any old version before we download to this location.
         [fm removeItemAtURL:prpDataURL error:nil];
         
-        // We expect a URL that contains a SQLite3 PRP file, probably on dropbox.com
+        // We expect a URL that contains a SQLite3 PRP file, on dropbox.com in RHS's Public folder
         NSString *dataURL = [myJSONdata.deserializedDictionary objectForKey:@"dataURL"];
         NSURL *url = [NSURL URLWithString:dataURL];
         
@@ -116,8 +120,13 @@
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:nst];
         NSURLResponse *response = nil;
         NSError *error = nil;
+    
+        // Initialize reachability to NOT REACHABLE.  Update state as we learn more...
+        // If we successfully download the PRP SQL3 data from the internet (Dropbox), we set internet reachability to REACHABLE
+        internetState.reachabilityStatus = NOT_REACHABLE;
         
-        NSLog(@"Starting synchronous connection to: %@", url);
+        // Try to download the SQL3 PRP data file
+        MyLog(@"Starting synchronous connection to: %@", url);
         NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
         
         if ([data length] > 0 && error == nil) {
@@ -126,12 +135,13 @@
             [data getBytes:test length:100]; // look at about the first 100 bytes
             test[99] = '\0';                 // create null-terminated C string
             NSString *testStr = [NSString stringWithCString:test encoding:NSASCIIStringEncoding];
-            NSRange nr = [testStr rangeOfString:@"html"];  //Dropbox error file is in html format
-            if (nr.location != NSNotFound) {               // a match
+            NSRange nr = [testStr rangeOfString:@"html"];  //Dropbox error file is in html format [SQL3 db file would not have this]
+            if (nr.location != NSNotFound) {               // a match - found "html"
                 shouldUseInstalledPRPData = YES;
                 MyLog(@"Dropbox error file downloaded: Not actual SQLite data!");
             } else {
-                // Looks like good data, so write it out
+                // Looks like good data from the PRP file, so write it out and update reachable state
+                internetState.reachabilityStatus = REACHABLE;
                 NSError *writeError = nil;
                 BOOL writeOK = [data writeToURL:prpDataURL options:NSDataWritingAtomic error:&writeError];
                 if (!writeOK) {
@@ -238,7 +248,7 @@
             orgDisplayString = [orgDisplayString stringByAppendingString:displayString];
         }
         
-        // If a discussion other
+        // If other (as yet, undefined, undisplayed)
         if (other) {
             otherDisplayString = [otherDisplayString stringByAppendingString:displayString];
         }
@@ -253,10 +263,10 @@
     otherDisplayString = [[BEGIN_HTML_WRAPPER stringByAppendingString:otherDisplayString] stringByAppendingString:END_HTML_WRAPPER];
     
     // Array object order must follow CONFIGARRAY #defines
-    NSArray *configArrayController1 = [NSArray arrayWithObjects:@"Web", @"Web Resources", @"first", nil];
-    NSArray *configArrayController3 = [NSArray arrayWithObjects:@"Media", @"Media Resources", @"first", nil];  // <-- UPDATE IMAGE
-    NSArray *configArrayController4 = [NSArray arrayWithObjects:@"Blog", @"Blog Resources", @"first", nil];
-    NSArray *configArrayController5 = [NSArray arrayWithObjects:@"Org", @"Org Resources", @"first", nil];
+    NSArray *configArrayController1 = [NSArray arrayWithObjects:@"Web", @"Web Resources", @"first", internetState, nil];
+    NSArray *configArrayController2 = [NSArray arrayWithObjects:@"Media", @"Media Resources", @"first", internetState, nil];  //
+    NSArray *configArrayController3 = [NSArray arrayWithObjects:@"Blog", @"Blog Resources", @"first", internetState, nil];
+    NSArray *configArrayController4 = [NSArray arrayWithObjects:@"Org", @"Org Resources", @"first", internetState, nil];
     //NSArray *configArrayController6 = [NSArray arrayWithObjects:@"Other", @"Other Resources", @"first", nil];
     
     NSString *readmeFileBasename = [myJSONdata.deserializedDictionary objectForKey:@"readme_file_base"];
@@ -269,9 +279,9 @@
     // NSString *contents = [NSString stringWithContentsOfFile:readmeFilePath encoding:NSUTF8StringEncoding error:nil];
     
     UIViewController *viewController1 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:webDisplayString andConfigArray:configArrayController1 bundle:nil];
-    UIViewController *viewController2 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:mediaDisplayString andConfigArray:configArrayController3 bundle:nil];
-    UIViewController *viewController3 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:blogDisplayString andConfigArray:configArrayController4 bundle:nil];
-    UIViewController *viewController4 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:orgDisplayString andConfigArray:configArrayController5 bundle:nil];
+    UIViewController *viewController2 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:mediaDisplayString andConfigArray:configArrayController2 bundle:nil];
+    UIViewController *viewController3 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:blogDisplayString andConfigArray:configArrayController3 bundle:nil];
+    UIViewController *viewController4 = [[TEXPFirstViewController alloc] initWithNibName:@"TEXPFirstViewController" andData:orgDisplayString andConfigArray:configArrayController4 bundle:nil];
     
     // View Controller for the Readme file
     
@@ -323,10 +333,10 @@
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    // If ViewController is managing a WebView (TEXPFirstViewController), reload that view to initial state
-                
+    // Maybe we don't need this logic, so just do nothing (;) for now:
+    // ***************
         if ([viewController.nibName isEqualToString:@"TEXPFirstViewController"])
-           [(TEXPFirstViewController *) viewController loadInitialView];
+            ;//  [(TEXPFirstViewController *) viewController loadInitialView];
 }
 
 

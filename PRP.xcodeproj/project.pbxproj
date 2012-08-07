@@ -38,6 +38,9 @@
 		18864E30158D083E0077BFAF /* TEXPSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18864E2E158D083E0077BFAF /* TEXPSecondViewController.xib */; };
 		18864E37158D0B0A0077BFAF /* someHTML.html in Resources */ = {isa = PBXBuildFile; fileRef = 18864E36158D0B0A0077BFAF /* someHTML.html */; };
 		18A3CAFC15A7792D00B3AAB7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */; };
+		18CFF14515CF27CF00A9BA49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CFF14415CF27CF00A9BA49 /* SystemConfiguration.framework */; };
+		18CFF14815CF2A7900A9BA49 /* PRPReachabilityStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CFF14715CF2A7900A9BA49 /* PRPReachabilityStatus.m */; };
+		18CFF15A15D08BBD00A9BA49 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CFF15915D08BBD00A9BA49 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,11 @@
 		18864E2F158D083E0077BFAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TEXPSecondViewController.xib; sourceTree = "<group>"; };
 		18864E36158D0B0A0077BFAF /* someHTML.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = someHTML.html; sourceTree = "<group>"; };
 		18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		18CFF14415CF27CF00A9BA49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18CFF14615CF2A7900A9BA49 /* PRPReachabilityStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPReachabilityStatus.h; sourceTree = "<group>"; };
+		18CFF14715CF2A7900A9BA49 /* PRPReachabilityStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPReachabilityStatus.m; sourceTree = "<group>"; };
+		18CFF15815D08BBD00A9BA49 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
+		18CFF15915D08BBD00A9BA49 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CFF14515CF27CF00A9BA49 /* SystemConfiguration.framework in Frameworks */,
 				1811419815B356A900D7F961 /* libsqlite3.dylib in Frameworks */,
 				18A3CAFC15A7792D00B3AAB7 /* MessageUI.framework in Frameworks */,
 				18864E0C158D083E0077BFAF /* UIKit.framework in Frameworks */,
@@ -138,6 +147,7 @@
 		18864E0A158D083D0077BFAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18CFF14415CF27CF00A9BA49 /* SystemConfiguration.framework */,
 				1811419715B356A900D7F961 /* libsqlite3.dylib */,
 				18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */,
 				18864E0B158D083D0077BFAF /* UIKit.framework */,
@@ -152,6 +162,10 @@
 			children = (
 				18864E1A158D083E0077BFAF /* TEXPAppDelegate.h */,
 				18864E1B158D083E0077BFAF /* TEXPAppDelegate.m */,
+				18CFF15815D08BBD00A9BA49 /* Reachability.h */,
+				18CFF15915D08BBD00A9BA49 /* Reachability.m */,
+				18CFF14615CF2A7900A9BA49 /* PRPReachabilityStatus.h */,
+				18CFF14715CF2A7900A9BA49 /* PRPReachabilityStatus.m */,
 				1810B8AB15BA176F00EB4B50 /* NSObject+NSStringExtentions.h */,
 				1810B8AC15BA176F00EB4B50 /* NSObject+NSStringExtentions.m */,
 				184E9EB215B627F7003EB9BF /* SQLiteMgr.h */,
@@ -277,6 +291,8 @@
 				1810B8AA15BA02D600EB4B50 /* ParseJSON.m in Sources */,
 				1810B8AD15BA176F00EB4B50 /* NSObject+NSStringExtentions.m in Sources */,
 				180D154515C47D8600BF472E /* PRPThirdViewController.m in Sources */,
+				18CFF14815CF2A7900A9BA49 /* PRPReachabilityStatus.m in Sources */,
+				18CFF15A15D08BBD00A9BA49 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

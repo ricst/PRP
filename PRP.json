@@ -4,7 +4,7 @@
     "readme_file_ext" : "txt",
     "sql3_src_file_base" : "prp1_ref",
     "sql3_src_file_ext" : "sql3",
-    "syncMaxSecs" : 15.0, 
+    "syncMaxSecs" : 5.0,
     "tablename" : "prptable"
 }
         

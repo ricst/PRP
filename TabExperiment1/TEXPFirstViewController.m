@@ -9,7 +9,8 @@
 #import "rhs_header_utils.h"
 #import "TEXPFirstViewController.h"
 
-//#import "PRPData.h"
+// 0 => enable debug logging. 1=> Disable debug logging
+#define MyLog if(0); else NSLog
 
 @interface TEXPFirstViewController ()
 
@@ -23,6 +24,7 @@
 @synthesize isOnTopPage = _isOnTopPage;
 @synthesize currentURL = _currentURL;
 @synthesize myContentOffset = _myContentOffset;
+@synthesize internetState = _internetState;
 
 @synthesize webView1 = _webView1;
 
@@ -37,7 +39,9 @@
 
         self.title = NSLocalizedString([configArray objectAtIndex:CONFIGARRAY_NSLOC_KEY_INDEX], [configArray objectAtIndex:CONFIGARRAY_NSLOC_COMMENT_INDEX]);
         self.tabBarItem.image = [UIImage imageNamed:[configArray objectAtIndex:CONFIGARRAY_IMAGENAME_INDEX]];
+        self.internetState = [configArray objectAtIndex:CONFIGARRAY_INTERNET_STATE_INDEX];
     }
+    
     return self;
 }
 
@@ -51,18 +55,25 @@
     return self;
 }
 
+- (void)showAlertMessage {
+
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Internet Access Failed" message:@"Not all URLs may not be reachable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alertView show];
+}
+
+// If internet reachability is NOT available and we have not issued an alert for at least 60 seconds, then issue the alert
 - (void)loadInitialView
 {
-        self.myToolbar.hidden = YES;
-        
-        self.webView1.scrollView.contentOffset = self.myContentOffset;
-        //NSLog(@"loadInitialView: contentOffset set to (%f, %f)", self.myContentOffset.x, self.myContentOffset.y);
-
-        [self.webView1 loadHTMLString:self.dataAsHTML baseURL:nil];
-        self.isOnTopPage = YES;
-        
-        // Allow for UIWebViewDelegate
-        self.webView1.delegate = self;
+    self.myToolbar.hidden = YES;
+    
+    self.webView1.scrollView.contentOffset = self.myContentOffset;
+    //NSLog(@"loadInitialView: contentOffset set to (%f, %f)", self.myContentOffset.x, self.myContentOffset.y);
+    
+    [self.webView1 loadHTMLString:self.dataAsHTML baseURL:nil];
+    self.isOnTopPage = YES;
+    
+    // Allow for UIWebViewDelegate
+    self.webView1.delegate = self;
 }
 
 //hide or show myToolbar
@@ -88,6 +99,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    //MyLog(@"In viewDidLoad for %@ ViewController", self.title);
+    
     //self.myToolbar.hidden = YES;
     [self loadInitialView];
 
@@ -96,6 +109,28 @@
     gest.numberOfTouchesRequired = 2;
     gest.delegate = self;
     [self.webView1 addGestureRecognizer:gest];
+    
+}
+
+// Must wait for view to appear before we put up an alert message => thus, override viewDidAppear
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // If the Internet is not reachable, and we have not recently notified user, then alert the user and store the date/time we did this
+    //MyLog(@"viewDidAppear: lastAlertUpdate: %@", self.internetState.lastAlertUpdate);
+
+    NSTimeInterval seconds = [self.internetState.lastAlertUpdate timeIntervalSinceNow];
+    
+    MyLog(@"seconds since last alert = %f", seconds);
+    
+    if (ABS(seconds) > NO_INTERNET_ALERT_INTERVAL_SECS) {
+        if (self.internetState.reachabilityStatus == !REACHABLE) {
+            [self showAlertMessage];
+            self.internetState.lastAlertUpdate = [NSDate date];  //update last alert date to indicate we alerted now
+        }
+    }
+    
 }
 
 - (void)viewDidUnload
