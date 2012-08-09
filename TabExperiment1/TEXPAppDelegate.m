@@ -11,8 +11,9 @@
 #import "TEXPFirstViewController.h"
 #import "TEXPSecondViewController.h"
 #import "PRPThirdViewController.h"
-#import "Reachability.h"
+
 #import "PRPReachabilityStatus.h"
+#import "NSObject+NSStringExtentions.h"
 
 #import "ParseJSON.h"
 #import "SQLiteMgr.h"
@@ -45,12 +46,25 @@
 
 #define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\"> </head> <body> <br /> <br />"
 #define END_HTML_WRAPPER @"</body> </html>"
+ 
+// Check for Internet Reachability at periodic intervals of this many seconds
+// Except for testing, we want no less than 60.0
+#define TIME_INTERVAL_FOR_INTERNET_CHECK 30.0
+// Timeout for Internet access (must have valid connection & data within this many seconds, or else NOT REACHABLE)
+#define INTERNET_CHECK_TIMEOUT 5.0f
+
+//Global variables (maybe try Singleton instead) ////////////////////////////
+PRPReachabilityStatus *internetState;
+
+///////////////////////////////////////////////
 
 @implementation TEXPAppDelegate
 
 @synthesize xmlParser = _xmlParser;
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
+
+@synthesize myTimer = _myTimer;
 
 - (NSURL *)installedDBFileURL
 {
@@ -78,6 +92,11 @@
     UIApplication *myApp = [UIApplication sharedApplication];
     myApp.networkActivityIndicatorVisible = YES;
     
+    internetState = [[PRPReachabilityStatus alloc] init];
+    
+    //check for Internet reachability periodically
+    self.myTimer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL_FOR_INTERNET_CHECK target:self selector:@selector(checkInternetConnection) userInfo:nil repeats:YES];
+    
     // Could read in some #defines data here
 
     ParseJSON *myJSONdata = [[ParseJSON alloc] init];
@@ -99,9 +118,7 @@
         shouldUseInstalledPRPData = YES;
         MyLog(@"Could not create a docs folder '%@'\nError: %@", prpFolderURL, [docError localizedDescription]);
     }
-  
-    PRPReachabilityStatus *internetState = [[PRPReachabilityStatus alloc] init];
-    
+        
     NSURL *prpDataURL;
     if (!shouldUseInstalledPRPData) {
         // OK, let's try to download a current PRP data file and set ptr to it, if successful
@@ -299,7 +316,53 @@
     
     myApp.networkActivityIndicatorVisible = NO;
     
+    
     return YES;
+}
+
+// Reachability was not working properly.  Let's just check for www.apple.com
+// Async download will set results
+- (void) checkInternetConnection {
+    
+    MyLog(@"checkInternetConnection: checking reachability to www.apple.com.....");
+    NSURL *url = [NSURL URLWithString:@"http://www.apple.com"];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:INTERNET_CHECK_TIMEOUT];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) 
+    {
+        BOOL reach;
+        if ([data length] > 0 && error == nil) {
+            //MyLog(@"checkInternetStatus: Got received: %u bytes", [data length]);
+            char test[500];
+            [data getBytes:test length:500]; // look at about the first 500 bytes
+            test[499] = '\0';                 // create null-terminated C string
+            NSString *testStr = [NSString stringWithCString:test encoding:NSASCIIStringEncoding];
+            if ([testStr containsString:@"Apple Inc."]) {
+                // Got to Apple web site => Internet access OK
+                MyLog(@"Got %u bytes from www.apple.com.", [data length]);
+                reach = REACHABLE;
+            } else {
+                MyLog(@"Oops: downloaded string didn't contain 'Apple Inc.'");
+            }
+        } else if ([data length] == 0 && error == nil){
+            // Internet access probably NOT OK
+            MyLog(@"Nothing downloaded from www.Apple.com");
+        } else if (error != nil) {
+            // Internet access NOT OK
+            MyLog(@"Error on download from www.apple.com: %@", error);
+        } else {
+            MyLog(@"checkInternetConnectivity: should never get here");
+        }
+        
+        if (reach == REACHABLE) {
+            [internetState setReachabilityStatus:REACHABLE];
+            MyLog(@"checkInternetConnection: Internet is REACHABLE. *****\n\n");
+        } else {
+            [internetState setReachabilityStatus:NOT_REACHABLE];
+            MyLog(@"checkInternetConnection: Internet is NOT REACHABLE *****\n\n");
+        }
+    }];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

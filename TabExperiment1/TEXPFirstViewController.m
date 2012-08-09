@@ -55,10 +55,27 @@
     return self;
 }
 
-- (void)showAlertMessage {
-
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Internet Access Failed" message:@"Not all URLs may not be reachable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+- (void)showAlertMessage
+{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Internet Access Failed" message:@"Not all URLs may be reachable" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertView show];
+}
+
+// Display an Alert message if: 1) Internet reachability is not present, and 2) at least NO_INTERNET_ALERT_INTERVAL_SECS seconds has
+// elapsed since any prior similar alert
+- (void)showAlertMessageIfNotRecentlyViewed
+{
+    // Need to negate result because last alert is always prior to now
+    NSTimeInterval seconds = -[self.internetState.lastAlertUpdate timeIntervalSinceNow];
+    
+    MyLog(@"showAlertMessageIfNotRecentlyViewed: seconds since last alert = %f", seconds);
+
+    if (seconds > NO_INTERNET_ALERT_INTERVAL_SECS) {
+        if ([self.internetState reachabilityStatus] == NOT_REACHABLE) {
+            [self showAlertMessage];
+            [self.internetState updateAlertTimeToNow];  //update last alert date to indicate we alerted now
+        }
+    }
 }
 
 // If internet reachability is NOT available and we have not issued an alert for at least 60 seconds, then issue the alert
@@ -117,20 +134,7 @@
 {
     [super viewDidAppear:animated];
     
-    // If the Internet is not reachable, and we have not recently notified user, then alert the user and store the date/time we did this
-    //MyLog(@"viewDidAppear: lastAlertUpdate: %@", self.internetState.lastAlertUpdate);
-
-    NSTimeInterval seconds = [self.internetState.lastAlertUpdate timeIntervalSinceNow];
-    
-    MyLog(@"seconds since last alert = %f", seconds);
-    
-    if (ABS(seconds) > NO_INTERNET_ALERT_INTERVAL_SECS) {
-        if (self.internetState.reachabilityStatus == !REACHABLE) {
-            [self showAlertMessage];
-            self.internetState.lastAlertUpdate = [NSDate date];  //update last alert date to indicate we alerted now
-        }
-    }
-    
+    [self showAlertMessageIfNotRecentlyViewed];
 }
 
 - (void)viewDidUnload
@@ -229,6 +233,14 @@
 - (IBAction)stopLoadingButton:(id)sender {
     if (!self.isOnTopPage)
         [self.webView1 stopLoading];
+}
+
+// Main Button is to restore top (first) page
+// because goBack button can't do it (Web browser cannot go back to a page initially loaded from an HTML string [not cached])
+- (IBAction)mainButton:(id)sender {
+    if (!self.isOnTopPage) {
+        [self loadInitialView];
+    }
 }
 
 

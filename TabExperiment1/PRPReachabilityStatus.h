@@ -18,9 +18,9 @@
 
 @interface PRPReachabilityStatus : NSObject
 
-@property BOOL reachabilityStatus;  // YES => last reported to be reachable
+@property (nonatomic) BOOL reachabilityStatus;  // YES => last reported to be reachable
 @property (nonatomic, strong) NSDate *lastAlertUpdate;  // To be updated whenever an object issues an alert
 
-- (void)updateAlertTime;
+- (void)updateAlertTimeToNow;
 
 @end

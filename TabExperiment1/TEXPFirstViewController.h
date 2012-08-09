@@ -17,7 +17,7 @@
 #define CONFIGARRAY_IMAGENAME_INDEX 2
 #define CONFIGARRAY_INTERNET_STATE_INDEX 3
 
-#define NO_INTERNET_ALERT_INTERVAL_SECS 60
+#define NO_INTERNET_ALERT_INTERVAL_SECS 60.0f
 
 @interface TEXPFirstViewController : UIViewController <UIGestureRecognizerDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 
@@ -31,6 +31,7 @@
 - (IBAction)goBackButton:(id)sender;
 - (IBAction)goForwardButton:(id)sender;
 - (IBAction)stopLoadingButton:(id)sender;
+- (IBAction)mainButton:(id)sender;
 
 @property (nonatomic, copy) NSString *dataAsHTML;
 @property (nonatomic) BOOL isOnTopPage;
