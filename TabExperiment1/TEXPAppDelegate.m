@@ -53,10 +53,8 @@
 // Timeout for Internet access (must have valid connection & data within this many seconds, or else NOT REACHABLE)
 #define INTERNET_CHECK_TIMEOUT 5.0f
 
-//Global variables (maybe try Singleton instead) ////////////////////////////
-PRPReachabilityStatus *internetState;
-
-///////////////////////////////////////////////
+//Global variables 
+//PRPReachabilityStatus *internetState;
 
 @implementation TEXPAppDelegate
 
@@ -92,7 +90,8 @@ PRPReachabilityStatus *internetState;
     UIApplication *myApp = [UIApplication sharedApplication];
     myApp.networkActivityIndicatorVisible = YES;
     
-    internetState = [[PRPReachabilityStatus alloc] init];
+    //internetState = [[PRPReachabilityStatus alloc] init];
+    PRPReachabilityStatus *internetState = [PRPReachabilityStatus sharedStatus];
     
     //check for Internet reachability periodically
     self.myTimer = [NSTimer scheduledTimerWithTimeInterval:TIME_INTERVAL_FOR_INTERNET_CHECK target:self selector:@selector(checkInternetConnection) userInfo:nil repeats:YES];
@@ -326,7 +325,7 @@ PRPReachabilityStatus *internetState;
     
     MyLog(@"checkInternetConnection: checking reachability to www.apple.com.....");
     NSURL *url = [NSURL URLWithString:@"http://www.apple.com"];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:INTERNET_CHECK_TIMEOUT];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:INTERNET_CHECK_TIMEOUT];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) 
     {
@@ -355,10 +354,12 @@ PRPReachabilityStatus *internetState;
         }
         
         if (reach == REACHABLE) {
-            [internetState setReachabilityStatus:REACHABLE];
+            //[internetState setReachabilityStatus:REACHABLE];
+            [[PRPReachabilityStatus sharedStatus] setReachabilityStatus:REACHABLE];
             MyLog(@"checkInternetConnection: Internet is REACHABLE. *****\n\n");
         } else {
-            [internetState setReachabilityStatus:NOT_REACHABLE];
+            //[internetState setReachabilityStatus:NOT_REACHABLE];
+            [[PRPReachabilityStatus sharedStatus] setReachabilityStatus:NOT_REACHABLE];
             MyLog(@"checkInternetConnection: Internet is NOT REACHABLE *****\n\n");
         }
     }];
@@ -396,7 +397,7 @@ PRPReachabilityStatus *internetState;
 // Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    // Maybe we don't need this logic, so just do nothing (;) for now:
+    // We don't need this logic, so just do nothing (;) for now:
     // ***************
         if ([viewController.nibName isEqualToString:@"TEXPFirstViewController"])
             ;//  [(TEXPFirstViewController *) viewController loadInitialView];

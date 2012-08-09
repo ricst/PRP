@@ -21,6 +21,9 @@
 @property (nonatomic) BOOL reachabilityStatus;  // YES => last reported to be reachable
 @property (nonatomic, strong) NSDate *lastAlertUpdate;  // To be updated whenever an object issues an alert
 
+// Class object for singleton
++ (PRPReachabilityStatus *)sharedStatus;
+
 - (void)updateAlertTimeToNow;
 
 @end

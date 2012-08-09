@@ -8,6 +8,7 @@
 
 #import "rhs_header_utils.h"
 #import "TEXPFirstViewController.h"
+#import "PRPReachabilityStatus.h"
 
 // 0 => enable debug logging. 1=> Disable debug logging
 #define MyLog if(0); else NSLog
