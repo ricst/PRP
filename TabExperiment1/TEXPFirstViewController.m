@@ -147,6 +147,8 @@
     // Release any retained subviews of the main view.
 }
 
+// All view controllers should choose the same approach, or results may be inconsistent
+// To keep top nav (tool) bar in place on landscape mode: center (in box) vertical line needs to be a spring.  Others are struts.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);

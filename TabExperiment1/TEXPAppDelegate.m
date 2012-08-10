@@ -49,7 +49,7 @@
  
 // Check for Internet Reachability at periodic intervals of this many seconds
 // Except for testing, we want no less than 60.0
-#define TIME_INTERVAL_FOR_INTERNET_CHECK 30.0
+#define TIME_INTERVAL_FOR_INTERNET_CHECK 60.0
 // Timeout for Internet access (must have valid connection & data within this many seconds, or else NOT REACHABLE)
 #define INTERNET_CHECK_TIMEOUT 5.0f
 

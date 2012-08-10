@@ -61,9 +61,10 @@
     // e.g. self.myOutlet = nil;
 }
 
+// All View Controllers must/should follow the same paradigm, or results may be inconsistent
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 @end
