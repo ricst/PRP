@@ -44,7 +44,14 @@
 
 #define SQLITE_QUERY @"SELECT * FROM %@ ORDER BY name_sort COLLATE NOCASE ASC;"
 
-#define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\"> </head> <body> <br /> <br />"
+/* #define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\"> </head> <body> <br /> <br />"
+ */
+
+/* #define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\"> </head> <body> <div style=\"font-size:26px\" \"text-align:center\">Progressive Resource Portal</div>"
+*/
+
+#define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\">  <style type=\"text/css\" rel=\"stylesheet\"> .resetcss {margin: 0; padding: 0; border: 0; } </style> </head> <body> <p style=\"font-size:26px; text-align:center; margin: 0.25em auto\">Progressive Resource Portal</p>"
+
 #define END_HTML_WRAPPER @"</body> </html>"
  
 // Check for Internet Reachability at periodic intervals of this many seconds

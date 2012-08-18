@@ -6,10 +6,10 @@ HOW TO USE: Select a tab (at bottom), navigate through entries.  Tap the one tha
 
 Why PRP?  I was finding that I tended to only visit progressive sites I had bookmarked, and infrequently navigated outside of those.  So I created a much longer list of resources that are now available on the iPhone, and I surf around as time permits, often finding people and information I never would have otherwise explored.  Perhaps this will be your experience too.
 
-Note: Selecting resources obviously involves some personal choice.  I have tried to include a broad spectrum, including some of the best known bloggers.  There was no attempt to include "everyone and everything".  These are resources for progressives, though not every site has a progressive viewpoint.  If you think I've missed a valuable person, site or organization, or you've discovered error, please let me know.
+Note: Selecting resources obviously involves some personal choice.  I have tried to include a broad spectrum, including some of the best known bloggers.  There was no attempt to include "everyone and everything".  These are resources for progressives, though not every site has a progressive viewpoint.  If you think I've missed a valuable person, site or organization, or you've discovered an error, please let me know.  [And if you really want "everything", you might start at" liberaloasis.com and world.org].
 
 Send suggestions and corrections to: prportal61@gmail.com.
 
-Possible future additions: Search capability, site(s) of the day, books, iPad version.
+Possible future additions: Keyword search capability, site(s) of the day, PRP mini blog, progressive book recommendations, iPad version.  What are your ideas?
 
 PRP developed by Ric Steinberger.  No Ads on the entire App except this one: If your progressive organization is interested in having an iPhone App developed, please get in touch.  Perhaps we can work something out.  prportal61@gmail.com

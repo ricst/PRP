@@ -69,7 +69,7 @@
     // Need to negate result because last alert is always prior to now
     NSTimeInterval seconds = -[self.internetState.lastAlertUpdate timeIntervalSinceNow];
     
-    MyLog(@"showAlertMessageIfNotRecentlyViewed: seconds since last alert = %f", seconds);
+    // MyLog(@"showAlertMessageIfNotRecentlyViewed: seconds since last alert = %f", seconds);
 
     if (seconds > NO_INTERNET_ALERT_INTERVAL_SECS) {
         if ([self.internetState reachabilityStatus] == NOT_REACHABLE) {
@@ -83,6 +83,11 @@
 - (void)loadInitialView
 {
     self.myToolbar.hidden = YES;
+    
+    // Load a blank page (quickly) to erase any prior page state (like from when another site may have been loaded)
+    NSURL *url = [NSURL URLWithString:@"about:blank"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.webView1 loadRequest:request];
     
     self.webView1.scrollView.contentOffset = self.myContentOffset;
     //NSLog(@"loadInitialView: contentOffset set to (%f, %f)", self.myContentOffset.x, self.myContentOffset.y);
