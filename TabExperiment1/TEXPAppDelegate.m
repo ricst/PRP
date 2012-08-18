@@ -50,7 +50,9 @@
 /* #define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\"> </head> <body> <div style=\"font-size:26px\" \"text-align:center\">Progressive Resource Portal</div>"
 */
 
-#define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" /> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" /> <body bgcolor=\"#fffcd2\">  <style type=\"text/css\" rel=\"stylesheet\"> .resetcss {margin: 0; padding: 0; border: 0; } </style> </head> <body> <p style=\"font-size:26px; text-align:center; margin: 0.25em auto\">Progressive Resource Portal</p>"
+/* #define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <link rel=\"stylesheet\" type=\"text/css\" href=\"sample.css\" > <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\" >  <style type=\"text/css\" rel=\"stylesheet\"> .resetcss {margin: 0; padding: 0; border: 0; } </style> </head> <body bgcolor=\"#fffcd2\"> <p style=\"font-size:26px; text-align:center; margin: 0.25em auto\">Progressive Resource Portal</p>" */
+
+#define BEGIN_HTML_WRAPPER @"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <html> <head> <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"> <meta name=\"viewport\" content=\"initial-scale=1.0, user-scalable=no\"> <title>PRP</title>  <style type=\"text/css\"> .resetcss {margin: 0; padding: 0; border: 0; } </style> </head> <body bgcolor=\"#fffcd2\"> <p style=\"font-size:26px; text-align:center; margin: 0.25em auto\" class=\"resetcss\">Progressive Resource Portal</p>"
 
 #define END_HTML_WRAPPER @"</body> </html>"
  
@@ -233,12 +235,12 @@
         NSString *urlAndroidString = [dataDict objectForKey:@"url_android"];
         
         // Name and description must be present.  URLs are optional. Length check to ignore blank entries.
-        displayString = [str stringByAppendingFormat:@"<p><strong>%@ </strong> <br />%@ <br />", nameString, descString, nil];
+        displayString = [str stringByAppendingFormat:@"<p><strong>%@ </strong> <br>%@ <br>", nameString, descString, nil];
  
         //Must check for both Null string and string long enough to be valid (i.e., not blank) - arbitrarily set to anything over 8
         for (NSString *uString in [NSArray arrayWithObjects:urlString, urlItunesString, urlAndroidString, nil]) {
             if ( ((NSNull *)uString != [NSNull null]) && ([uString length] > 8) ) 
-                displayString = [displayString stringByAppendingFormat:@"%@ <br />", uString, nil];
+                displayString = [displayString stringByAppendingFormat:@"%@ <br>", uString, nil];
         }
         
         displayString = [displayString stringByAppendingFormat:@"</p>"];

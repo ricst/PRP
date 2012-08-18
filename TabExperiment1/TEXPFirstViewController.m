@@ -84,7 +84,7 @@
 {
     self.myToolbar.hidden = YES;
     
-    // Load a blank page (quickly) to erase any prior page state (like from when another site may have been loaded)
+    // Load a blank page (temproarily & quickly) to erase any prior page state (like from when another site may have been loaded)
     NSURL *url = [NSURL URLWithString:@"about:blank"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView1 loadRequest:request];
