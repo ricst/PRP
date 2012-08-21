@@ -34,7 +34,6 @@
 		18864E2A158D083E0077BFAF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18864E29158D083E0077BFAF /* second@2x.png */; };
 		18864E2D158D083E0077BFAF /* TEXPFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18864E2B158D083E0077BFAF /* TEXPFirstViewController.xib */; };
 		18864E30158D083E0077BFAF /* TEXPSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18864E2E158D083E0077BFAF /* TEXPSecondViewController.xib */; };
-		18864E37158D0B0A0077BFAF /* someHTML.html in Resources */ = {isa = PBXBuildFile; fileRef = 18864E36158D0B0A0077BFAF /* someHTML.html */; };
 		18A3CAFC15A7792D00B3AAB7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */; };
 		18CFF14515CF27CF00A9BA49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CFF14415CF27CF00A9BA49 /* SystemConfiguration.framework */; };
 		18CFF14815CF2A7900A9BA49 /* PRPReachabilityStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CFF14715CF2A7900A9BA49 /* PRPReachabilityStatus.m */; };
@@ -84,7 +83,6 @@
 		18864E29158D083E0077BFAF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		18864E2C158D083E0077BFAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TEXPFirstViewController.xib; sourceTree = "<group>"; };
 		18864E2F158D083E0077BFAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TEXPSecondViewController.xib; sourceTree = "<group>"; };
-		18864E36158D0B0A0077BFAF /* someHTML.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = someHTML.html; sourceTree = "<group>"; };
 		18A3CAFB15A7792D00B3AAB7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		18CFF14415CF27CF00A9BA49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18CFF14615CF2A7900A9BA49 /* PRPReachabilityStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPReachabilityStatus.h; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				1810B89915B8BC0200EB4B50 /* PRP.json */,
 				180D154915C4962E00BF472E /* Readme.txt */,
 				181141AB15B358FF00D7F961 /* rhs_header_utils.h */,
-				18864E36158D0B0A0077BFAF /* someHTML.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -268,7 +265,6 @@
 				18864E2A158D083E0077BFAF /* second@2x.png in Resources */,
 				18864E2D158D083E0077BFAF /* TEXPFirstViewController.xib in Resources */,
 				18864E30158D083E0077BFAF /* TEXPSecondViewController.xib in Resources */,
-				18864E37158D0B0A0077BFAF /* someHTML.html in Resources */,
 				1810B89A15B8BC0200EB4B50 /* PRP.json in Resources */,
 				180D153E15C47A9900BF472E /* arrow_left.png in Resources */,
 				180D153F15C47A9900BF472E /* arrow_left@2x.png in Resources */,
@@ -356,6 +352,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -375,6 +372,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -385,6 +383,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabExperiment1/PRP-Prefix.pch";
 				INFOPLIST_FILE = "TabExperiment1/PRP-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = PRP;
 				WRAPPER_EXTENSION = app;
 			};
@@ -396,10 +395,47 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabExperiment1/PRP-Prefix.pch";
 				INFOPLIST_FILE = "TabExperiment1/PRP-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = PRP;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		18EFC6C315E34118003A2177 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+		18EFC6C415E34118003A2177 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Richard Steinberger (Z34X52C34V)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TabExperiment1/PRP-Prefix.pch";
+				INFOPLIST_FILE = "TabExperiment1/PRP-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = PRP;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "22A99AB0-D606-45ED-92D9-D358C25EB42E";
+				WRAPPER_EXTENSION = app;
+			};
+			name = AppStore;
 		};
 /* End XCBuildConfiguration section */
 
@@ -409,6 +445,7 @@
 			buildConfigurations = (
 				18864E31158D083E0077BFAF /* Debug */,
 				18864E32158D083E0077BFAF /* Release */,
+				18EFC6C315E34118003A2177 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -418,6 +455,7 @@
 			buildConfigurations = (
 				18864E34158D083E0077BFAF /* Debug */,
 				18864E35158D083E0077BFAF /* Release */,
+				18EFC6C415E34118003A2177 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
